@@ -6,7 +6,7 @@ RUN apk add --no-cache \
 
 ARG INSTALL_DIR=/opt/shinyproxy
 ENV INSTALL_DIR=$INSTALL_DIR
-ARG VERSION=1.1.0
+ARG VERSION=1.1.1
 
 WORKDIR $INSTALL_DIR
 RUN wget https://www.shinyproxy.io/downloads/shinyproxy-${VERSION}.jar -O shinyproxy.jar
