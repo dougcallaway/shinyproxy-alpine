@@ -1,8 +1,8 @@
 #!/bin/ash
 set -e
 
-if [ -f application.tmp ]; then
-   envsubst < application.tmp > application.yml
+if [ -f config/application.tmp ]; then
+   envsubst < config/application.tmp > application.yml
 fi
 
 exec "$@"
