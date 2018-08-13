@@ -1,17 +1,10 @@
-FROM openjdk:8-jre-alpine
+FROM openjdk:8-jre 
 
-RUN apk add --no-cache \
-   # provides envsubst; required for application config file interpolation
-   gettext
+WORKDIR /opt/shinyproxy/
 
-ARG INSTALL_DIR=/opt/shinyproxy
-ENV INSTALL_DIR=$INSTALL_DIR
-ARG VERSION=2.0.1
+RUN wget https://www.shinyproxy.io/downloads/shinyproxy-2.0.1.jar -O shinyproxy.jar
 
-WORKDIR $INSTALL_DIR
-RUN wget https://www.shinyproxy.io/downloads/shinyproxy-${VERSION}.jar -O shinyproxy.jar
-COPY ./docker-entrypoint.sh .
-RUN chmod +x ./docker-entrypoint.sh
+COPY application.yml config/application.yml
 
-ENTRYPOINT ["./docker-entrypoint.sh"]
-CMD ["java", "-jar", "shinyproxy.jar"]
+ENTRYPOINT ["mv config/application.yml application.yml"]
+CMD ["java", "-jar", "/opt/shinyproxy/shinyproxy.jar"]
