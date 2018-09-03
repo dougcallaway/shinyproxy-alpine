@@ -4,7 +4,7 @@ WORKDIR /opt/shinyproxy/
 
 RUN wget https://www.shinyproxy.io/downloads/shinyproxy-2.0.2.jar -O shinyproxy.jar
 
-COPY application.yml config/application.yml
-RUN ln -s config/application.yml application.yml
+COPY application.yaml config/application.yaml
+RUN ln -s config/application.yaml application.yaml
 
 CMD ["java", "-jar", "shinyproxy.jar"]
