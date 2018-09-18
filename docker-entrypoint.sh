@@ -1,6 +1,8 @@
 #!/bin/ash
 set -e
 
+cd ${CONFIG_DIR}
+
 # standardise yaml file extension
 if [ -f application.yml ]; then
    mv application.yml application.yaml
