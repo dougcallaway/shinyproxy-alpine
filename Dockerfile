@@ -5,11 +5,11 @@ RUN apk add --no-cache \
    gettext
 
 ARG INSTALL_DIR=/opt/shinyproxy
-ENV INSTALL_DIR=$INSTALL_DIR
-ARG VERSION=2.0.2
+ARG SHINYPROXY_VERSION=2.0.2
+ENV SHINYPROXY_VERSION=$SHINYPROXY_VERSION
 
 WORKDIR $INSTALL_DIR
-RUN wget https://www.shinyproxy.io/downloads/shinyproxy-${VERSION}.jar -O shinyproxy.jar
+RUN wget https://www.shinyproxy.io/downloads/shinyproxy-${SHINYPROXY_VERSION}.jar -O shinyproxy.jar
 
 COPY ./docker-entrypoint.sh .
 RUN chmod +x ./docker-entrypoint.sh
