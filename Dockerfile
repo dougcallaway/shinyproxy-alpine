@@ -15,9 +15,9 @@ ENV SHINYPROXY_VERSION=$SHINYPROXY_VERSION
 WORKDIR $INSTALL_DIR
 RUN wget https://www.shinyproxy.io/downloads/shinyproxy-${SHINYPROXY_VERSION}.jar -O shinyproxy.jar
 
+COPY ./application.yaml ${CONFIG_DIR}/
 COPY ./docker-entrypoint.sh init-config.sh
-RUN chmod +x ./init-config.sh \
-  && mkdir $CONFIG_DIR
+RUN chmod +x ./init-config.sh
 ENTRYPOINT ["./init-config.sh"]
 
 CMD ["java", "-jar", "shinyproxy.jar"]
