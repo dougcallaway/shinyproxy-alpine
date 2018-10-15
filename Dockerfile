@@ -17,7 +17,7 @@ RUN wget https://www.shinyproxy.io/downloads/shinyproxy-${SHINYPROXY_VERSION}.ja
 
 COPY ./docker-entrypoint.sh init-config.sh
 RUN chmod +x ./init-config.sh \
-  & mkdir $CONFIG_DIR
+  & mkdir -p $CONFIG_DIR
 VOLUME $CONFIG_DIR
 ENTRYPOINT ["sh", "./init-config.sh"]
 
