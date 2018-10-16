@@ -19,14 +19,16 @@ if [ -f application.tmp ]; then
 fi
 
 # make the shinyproxy configuration available to the application
-if [ -f application.yaml ]; then
+if [ -f 'application.yaml' ]; then
    echo "  - found application.yaml"
    echo "  - creating symbolic link to ${INSTALL_DIR}/application.yml"
    ln -s application.yaml ${INSTALL_DIR}/application.yml
    cat ${INSTALL_DIR}/application.yml
+   echo "Completed ShinyProxy configuration"
+else
+   echo "WARNING: no 'application.yml', 'application.yaml', or 'application.tmp' was found; defaulting to demo configuration"
 fi
 
 cd ${INSTALL_DIR}
-echo "Completed ShinyProxy configuration"
 
 exec "$@"
