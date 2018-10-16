@@ -2,6 +2,7 @@
 set -e
 
 cd ${CONFIG_DIR}
+echo "checking $PWD for config file"
 
 # standardise yaml file extension
 if [ -f application.yml ]; then
