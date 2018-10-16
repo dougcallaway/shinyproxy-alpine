@@ -22,6 +22,7 @@ fi
 if [ -f application.yaml ]; then
    echo "  - creating symbolic link to ${INSTALL_DIR}/application.yml"
    ln -s application.yaml ${INSTALL_DIR}/application.yml
+   cat ${INSTALL_DIR}/application.yml
 fi
 
 cd ${INSTALL_DIR}
