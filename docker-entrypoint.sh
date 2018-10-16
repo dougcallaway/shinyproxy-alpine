@@ -20,6 +20,8 @@ fi
 
 # make the shinyproxy configuration available to the application
 if [ -f application.yaml ]; then
+   echo "  - found: $(ls)"
+   cat application.yaml
    echo "  - creating symbolic link to ${INSTALL_DIR}/application.yml"
    ln -s application.yaml ${INSTALL_DIR}/application.yml
    cat ${INSTALL_DIR}/application.yml
