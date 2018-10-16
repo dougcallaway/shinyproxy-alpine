@@ -5,7 +5,7 @@ RUN apk add --no-cache \
    gettext
 
 ARG INSTALL_DIR=/opt/shinyproxy
-ARG CONFIG_DIR=/etc/shinyproxy
+ARG CONFIG_DIR=/opt/shinyproxy/config
 ARG SHINYPROXY_VERSION=2.0.5
 
 ENV INSTALL_DIR=$INSTALL_DIR
