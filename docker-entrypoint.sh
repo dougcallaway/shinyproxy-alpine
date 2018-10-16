@@ -4,7 +4,7 @@ set -e
 echo "Initialising ShinyProxy configuration..."
 
 cd ${CONFIG_DIR}
-echo "  - checking $PWD for config file"
+echo "  - checking ${PWD} for config file"
 
 # standardise yaml file extension
 if [ -f application.yml ]; then
@@ -20,9 +20,8 @@ fi
 
 # make the shinyproxy configuration available to the application
 if [ -f 'application.yaml' ]; then
-   echo "  - found application.yaml"
    echo "  - creating symbolic link to ${INSTALL_DIR}/application.yml"
-   ln -s application.yaml ${INSTALL_DIR}/application.yml
+   ln -s ${PWD}/application.yaml ${INSTALL_DIR}/application.yml
    cat ${INSTALL_DIR}/application.yml
    echo "Completed ShinyProxy configuration"
 else
